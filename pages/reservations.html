@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reservations – La Bella Tavola</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon"><i class="fa-solid fa-utensils"></i></span>
+        <div class="logo-text">
+          <span class="logo-name">La Bella Tavola</span>
+          <span class="logo-tagline">Authentic Italian Cuisine</span>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="main-nav">
+        <ul>
+          <li><a href="../index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li><a href="menu.html"><i class="fa-solid fa-book-open"></i> Menu</a></li>
+          <li><a href="reservations.html" class="active"><i class="fa-solid fa-calendar-check"></i> Reservations</a></li>
+          <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="page-hero-content">
+        <span class="section-label">Reserve</span>
+        <h1>Book a Table</h1>
+        <p>We'd love to host you — fill in the form and we'll confirm shortly</p>
+      </div>
+    </section>
+
+    <section class="reservations-section">
+      <div class="container res-grid">
+        <div class="res-form-wrap">
+          <h2>Make a Reservation</h2>
+          <form id="reservationForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="resName">Full Name *</label>
+                <input type="text" id="resName" placeholder="Your name" />
+                <span class="field-error" id="resNameError"></span>
+              </div>
+              <div class="form-group">
+                <label for="resEmail">Email *</label>
+                <input type="email" id="resEmail" placeholder="you@example.com" />
+                <span class="field-error" id="resEmailError"></span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="resDate">Date *</label>
+                <input type="date" id="resDate" />
+                <span class="field-error" id="resDateError"></span>
+              </div>
+              <div class="form-group">
+                <label for="resTime">Time *</label>
+                <select id="resTime">
+                  <option value="">— Select time —</option>
+                  <option>12:00</option><option>12:30</option>
+                  <option>13:00</option><option>13:30</option>
+                  <option>14:00</option><option>18:00</option>
+                  <option>18:30</option><option>19:00</option>
+                  <option>19:30</option><option>20:00</option>
+                  <option>20:30</option><option>21:00</option>
+                </select>
+                <span class="field-error" id="resTimeError"></span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="resGuests">Guests *</label>
+                <select id="resGuests">
+                  <option value="">— Select —</option>
+                  <option>1</option><option>2</option><option>3</option>
+                  <option>4</option><option>5</option><option>6</option>
+                  <option>7</option><option>8+</option>
+                </select>
+                <span class="field-error" id="resGuestsError"></span>
+              </div>
+              <div class="form-group">
+                <label for="resPhone">Phone</label>
+                <input type="tel" id="resPhone" placeholder="+359…" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="resNotes">Special Requests</label>
+              <textarea id="resNotes" rows="3" placeholder="Allergies, celebrations…"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">
+              <i class="fa-solid fa-calendar-check"></i> Confirm Reservation
+            </button>
+          </form>
+        </div>
+
+        <div class="res-list-wrap">
+          <div class="res-list-header">
+            <h2>Your Reservations</h2>
+            <span id="resCount" class="badge">0</span>
+          </div>
+          <div id="resList" class="res-list">
+            <div class="empty-state" id="resEmpty">
+              <i class="fa-regular fa-calendar-xmark"></i>
+              <p>No reservations yet</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-section">
+      <div class="container">
+        <div class="info-grid">
+          <article class="info-card">
+            <i class="fa-solid fa-clock"></i>
+            <h3>Opening Hours</h3>
+            <p>Mon–Fri: 12:00 – 22:00</p>
+            <p>Sat–Sun: 11:00 – 23:00</p>
+          </article>
+          <article class="info-card">
+            <i class="fa-solid fa-location-dot"></i>
+            <h3>Location</h3>
+            <p>12 Vitosha Blvd</p>
+            <p>Sofia 1000, Bulgaria</p>
+          </article>
+          <article class="info-card">
+            <i class="fa-solid fa-phone"></i>
+            <h3>Call Us</h3>
+            <p>+359 2 123 4567</p>
+            <p>hello@labellatavola.bg</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-name">La Bella Tavola</span>
+        <p>Bringing the heart of Italy to your table since 1987.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="reservations.html">Reservations</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p><i class="fa-solid fa-location-dot"></i> 12 Vitosha Blvd, Sofia</p>
+        <p><i class="fa-solid fa-phone"></i> +359 2 123 4567</p>
+        <p><i class="fa-solid fa-envelope"></i> hello@labellatavola.bg</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 La Bella Tavola. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast hidden"></div>
+  <script src="../js/data.js"></script>
+  <script src="../js/reservations.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+</html>
