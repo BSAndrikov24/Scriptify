@@ -1,13 +1,4 @@
-/**
- * script.js — La Bella Tavola
- * Shared functionality across all pages:
- *  - Dark / light theme toggle (localStorage persisted)
- *  - Hamburger menu
- *  - Toast notifications
- *  - Featured dishes on homepage
- */
 
-/* ── Theme ── */
 const themeToggle = document.getElementById('themeToggle');
 const body = document.body;
 
@@ -32,7 +23,7 @@ if (themeToggle) {
   });
 }
 
-/* ── Hamburger ── */
+
 const hamburger = document.getElementById('hamburger');
 const nav = document.getElementById('main-nav');
 
@@ -42,7 +33,7 @@ if (hamburger && nav) {
     nav.classList.toggle('open', open);
     hamburger.setAttribute('aria-expanded', open);
   });
-  // Close on nav link click (mobile)
+  
   nav.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => {
       hamburger.classList.remove('open');
@@ -51,7 +42,6 @@ if (hamburger && nav) {
   });
 }
 
-/* ── Toast ── */
 function showToast(message, type = 'default', duration = 3000) {
   const toast = document.getElementById('toast');
   if (!toast) return;
@@ -62,7 +52,6 @@ function showToast(message, type = 'default', duration = 3000) {
   toast._timer = setTimeout(() => toast.classList.add('hidden'), duration);
 }
 
-/* ── Homepage: Featured Dishes ── */
 const featuredGrid = document.getElementById('featuredDishes');
 
 if (featuredGrid) {
