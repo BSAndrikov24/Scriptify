@@ -65,7 +65,7 @@ The project was developed by a team of 4 students.
 - Developed program features
 - Improved user interface
 
-<h3><big>Sofiq Chapcania - documentation ,presentation and testing</big></h3>
+<h3><big>Sofiya Chapkina - documentation, presentation and testing</big></h3>
 -Wrote documitation
 -Made presentation
 
