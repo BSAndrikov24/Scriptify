@@ -1,13 +1,4 @@
-/**
- * reservations.js — La Bella Tavola
- * Handles the reservations page:
- *  1. Form validation (name, email, date, time, guests)
- *  2. Add new reservation
- *  3. Display reservations list
- *  4. Delete reservation (with confirmation)
- *  5. Persist to localStorage
- *  6. Toast feedback
- */
+
 
 let reservations = loadReservations();
 
@@ -16,16 +7,12 @@ const resList   = document.getElementById('resList');
 const resEmpty  = document.getElementById('resEmpty');
 const resCount  = document.getElementById('resCount');
 
-// Set minimum date to today
 const resDateInput = document.getElementById('resDate');
 if (resDateInput) {
   const today = new Date().toISOString().split('T')[0];
   resDateInput.min = today;
 }
 
-/* ═══════════════════════════
-   VALIDATION
-═══════════════════════════ */
 function clearResErrors() {
   ['resNameError','resEmailError','resDateError','resTimeError','resGuestsError'].forEach(id => {
     const el = document.getElementById(id);
@@ -101,16 +88,12 @@ function validateReservation() {
   return valid;
 }
 
-/* ═══════════════════════════
-   RENDER LIST
-═══════════════════════════ */
+
 function renderReservations() {
-  // Sort newest first
   const sorted = [...reservations].sort((a, b) => b.id - a.id);
 
   resCount.textContent = reservations.length;
 
-  // Remove old cards (keep empty state in DOM)
   const oldCards = resList.querySelectorAll('.res-card');
   oldCards.forEach(c => c.remove());
 
@@ -154,9 +137,6 @@ function renderReservations() {
   });
 }
 
-/* ═══════════════════════════
-   ADD RESERVATION
-═══════════════════════════ */
 form.addEventListener('submit', e => {
   e.preventDefault();
   if (!validateReservation()) return;
@@ -180,9 +160,7 @@ form.addEventListener('submit', e => {
   showToast(`✅ Reservation for ${newRes.name} confirmed!`, 'success');
 });
 
-/* ═══════════════════════════
-   DELETE RESERVATION
-═══════════════════════════ */
+
 resList.addEventListener('click', e => {
   const btn = e.target.closest('.res-del-btn');
   if (!btn) return;
@@ -198,5 +176,5 @@ resList.addEventListener('click', e => {
   showToast(`Reservation for ${r.name} cancelled.`, 'error');
 });
 
-/* ── Init ── */
+
 renderReservations();
