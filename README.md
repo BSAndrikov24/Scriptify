@@ -62,24 +62,21 @@ The project was developed by a team of 4 students.
 - Managed GitHub repository
 - Organized tasks
 - Coordinated the project
+- And was one of the main coders
 
-<h3><big>Simeon Emelyanov - C++ Developer</big></h3>
+<h3><big>Vasilin Gospodinov - Code Developer</big></h3>
 
 - Worked on application structure
 - Developed program features
 - Improved user interface
 
-<h3><big>Ivan Kolozenko - Backend Logic Developer</big></h3>
+<h3><big>Sofiq Chapcania - documentation ,presentation and testing</big></h3>
+-Wrote documitation
+-Made presentation
 
-- Added application functionality
-- Worked on logic and interactions
-- Fixed bugs
-
-<h3><big>Mihail Hristov - Documentation & Testing</big></h3>
-
-- Wrote documentation
+<h3><big>Mihail Hristov - Testing and fixing</big></h3>
 - Tested the application
-- Prepared presentation
+- Fixed any mistakes
 
 <hr>
 
