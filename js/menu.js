@@ -1,19 +1,4 @@
-/**
- * menu.js — La Bella Tavola
- * All JavaScript functionality for the Menu page:
- *  1. Render dish cards from data (arrays of objects)
- *  2. Search / filter / sort
- *  3. Add new dish via modal form (with full validation)
- *  4. Edit existing dish
- *  5. Delete dish (with confirmation modal)
- *  6. Toggle favourite
- *  7. Statistics bar (count, fav count, avg price)
- *  8. Persist all changes to localStorage
- *  9. User feedback: toast notifications + empty state
- * 10. Status toggle (available / unavailable)
- */
 
-/* ── State ── */
 let dishes = loadDishes();
 let activeCategory = 'all';
 let searchQuery = '';
@@ -21,7 +6,7 @@ let sortMode = 'default';
 let editingId = null;
 let deletingId = null;
 
-/* ── DOM refs ── */
+
 const menuGrid       = document.getElementById('menuGrid');
 const emptyState     = document.getElementById('emptyState');
 const searchInput    = document.getElementById('searchInput');
@@ -32,7 +17,6 @@ const dishCountEl    = document.getElementById('dishCount');
 const favCountEl     = document.getElementById('favCount');
 const avgPriceEl     = document.getElementById('avgPrice');
 
-// Add/edit modal
 const dishModal      = document.getElementById('dishModal');
 const openAddBtn     = document.getElementById('openAddModal');
 const closeModalBtn  = document.getElementById('closeModal');
@@ -40,12 +24,12 @@ const cancelModalBtn = document.getElementById('cancelModal');
 const saveDishBtn    = document.getElementById('saveDish');
 const modalTitle     = document.getElementById('modalTitle');
 
-// Delete modal
+
 const deleteModal    = document.getElementById('deleteModal');
 const cancelDeleteBtn = document.getElementById('cancelDelete');
 const confirmDeleteBtn = document.getElementById('confirmDelete');
 
-// Form fields
+
 const dishName     = document.getElementById('dishName');
 const dishCategory = document.getElementById('dishCategory');
 const dishPrice    = document.getElementById('dishPrice');
@@ -56,24 +40,21 @@ const dishVeg      = document.getElementById('dishVeg');
 const dishSpicy    = document.getElementById('dishSpicy');
 const dishFeatured = document.getElementById('dishFeatured');
 
-// Error spans
+
 const nameError  = document.getElementById('nameError');
 const catError   = document.getElementById('catError');
 const priceError = document.getElementById('priceError');
 const descError  = document.getElementById('descError');
 
-/* ═══════════════════════════
-   RENDER
-═══════════════════════════ */
 function getFilteredSorted() {
   let list = [...dishes];
 
-  // Category filter
+ 
   if (activeCategory !== 'all') {
     list = list.filter(d => d.category === activeCategory);
   }
 
-  // Search
+
   if (searchQuery.trim()) {
     const q = searchQuery.toLowerCase();
     list = list.filter(d =>
@@ -84,7 +65,7 @@ function getFilteredSorted() {
     );
   }
 
-  // Sort
+ 
   switch (sortMode) {
     case 'price-asc':  list.sort((a, b) => a.price - b.price); break;
     case 'price-desc': list.sort((a, b) => b.price - a.price); break;
@@ -147,9 +128,7 @@ function renderMenu() {
   updateStats();
 }
 
-/* ═══════════════════════════
-   STATS BAR
-═══════════════════════════ */
+
 function updateStats() {
   const shown = getFilteredSorted();
   const favs  = dishes.filter(d => d.favourite).length;
@@ -160,9 +139,6 @@ function updateStats() {
   avgPriceEl.textContent = `Avg: ${avg.toFixed(2)} лв`;
 }
 
-/* ═══════════════════════════
-   SEARCH
-═══════════════════════════ */
 searchInput.addEventListener('input', () => {
   searchQuery = searchInput.value;
   clearSearch.hidden = searchQuery === '';
@@ -177,9 +153,6 @@ clearSearch.addEventListener('click', () => {
   renderMenu();
 });
 
-/* ═══════════════════════════
-   FILTER BUTTONS
-═══════════════════════════ */
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     filterBtns.forEach(b => b.classList.remove('active'));
@@ -189,17 +162,11 @@ filterBtns.forEach(btn => {
   });
 });
 
-/* ═══════════════════════════
-   SORT
-═══════════════════════════ */
 sortSelect.addEventListener('change', () => {
   sortMode = sortSelect.value;
   renderMenu();
 });
 
-/* ═══════════════════════════
-   CARD ACTIONS (event delegation)
-═══════════════════════════ */
 menuGrid.addEventListener('click', e => {
   const btn = e.target.closest('[data-action]');
   if (!btn) return;
@@ -212,7 +179,6 @@ menuGrid.addEventListener('click', e => {
   if (action === 'toggle') toggleAvailability(id);
 });
 
-/* ── Favourite ── */
 function toggleFavourite(id) {
   const d = dishes.find(x => x.id === id);
   if (!d) return;
@@ -222,7 +188,6 @@ function toggleFavourite(id) {
   showToast(d.favourite ? `❤️ ${d.name} added to favourites` : `${d.name} removed from favourites`, 'success');
 }
 
-/* ── Availability toggle ── */
 function toggleAvailability(id) {
   const d = dishes.find(x => x.id === id);
   if (!d) return;
@@ -232,9 +197,6 @@ function toggleAvailability(id) {
   showToast(`${d.name} marked as ${d.available ? 'available' : 'unavailable'}`, 'success');
 }
 
-/* ═══════════════════════════
-   ADD / EDIT MODAL
-═══════════════════════════ */
 function openAddModal() {
   editingId = null;
   modalTitle.textContent = 'Add New Dish';
@@ -286,7 +248,6 @@ closeModalBtn.addEventListener('click', closeModal);
 cancelModalBtn.addEventListener('click', closeModal);
 dishModal.addEventListener('click', e => { if (e.target === dishModal) closeModal(); });
 
-/* ── Form Validation ── */
 function validateForm() {
   clearErrors();
   let valid = true;
@@ -346,7 +307,7 @@ saveDishBtn.addEventListener('click', () => {
     : [];
 
   if (editingId !== null) {
-    // Edit existing
+
     const idx = dishes.findIndex(x => x.id === editingId);
     if (idx === -1) return;
     dishes[idx] = {
@@ -363,7 +324,6 @@ saveDishBtn.addEventListener('click', () => {
     };
     showToast(`✏️ ${dishes[idx].name} updated!`, 'success');
   } else {
-    // Add new
     const newDish = {
       id:          generateId(),
       name:        dishName.value.trim(),
@@ -395,9 +355,6 @@ document.addEventListener('keydown', e => {
   }
 });
 
-/* ═══════════════════════════
-   DELETE MODAL
-═══════════════════════════ */
 function openDeleteConfirm(id) {
   const d = dishes.find(x => x.id === id);
   if (!d) return;
@@ -425,5 +382,4 @@ confirmDeleteBtn.addEventListener('click', () => {
   showToast(`🗑️ "${d.name}" removed from menu.`, 'error');
 });
 
-/* ── Init ── */
 renderMenu();
