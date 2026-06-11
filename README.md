@@ -27,12 +27,12 @@
 # 📄 Documentation
 
 <h3>
-➤ <a href="Documentation/Documentation.docx">Documentation</a>
+➤ <a href="[Documentation/Documentation.docx](https://github.com/BSAndrikov24/Scriptify/blob/main/docs/SCRIPTIFY%20Documentation.pdf)">Documentation</a>
 <img src="https://cdn.worldvectorlogo.com/logos/word-1.svg" width="30" height="20"/>
 </h3>
 
 <h3>
-➤ <a href="Documentation/Presentation.pptx">Presentation</a>
+➤ <a href="[Documentation/Presentation.pptx](https://github.com/BSAndrikov24/Scriptify/blob/main/docs/SCRIPTIFY%20Presentation.pdf)">Presentation</a>
 <img src="https://cdn.worldvectorlogo.com/logos/powerpoint-2.svg" width="30" height="20"/>
 </h3>
 
