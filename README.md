@@ -11,7 +11,10 @@
 
 <p align="left">
   <a href="https://isocpp.org/">
-    <img src="https://img.icons8.com/color/48/c-plus-plus-logo.png" alt="C++"/>
+    <img src="[https://img.icons8.com/color/48/c-plus-plus-logo.png](https://imgs.search.brave.com/5N_oLq0HisFSgoI9be0Oy-flAY8oIyH8P3NZERDnQhA/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvcHJl/dmlld3MvMDI3LzEy/Ny80NjMvbm9uXzJ4/L2phdmFzY3JpcHQt/bG9nby1qYXZhc2Ny/aXB0LWljb24tdHJh/bnNwYXJlbnQtZnJl/ZS1wbmcucG5n)" alt="C++"/>
+  </a>
+  <a href="https://visualstudio.microsoft.com/">
+    <img src="[https://img.icons8.com/color/48/visual-studio.png](https://imgs.search.brave.com/vgfaDUUV_hU8lqnFPXtjSoRLCSZZteYusTsW8zuHEIw/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy82/LzYxL0hUTUw1X2xv/Z29fYW5kX3dvcmRt/YXJrLnN2Zw)" alt="Visual Studio"/>
   </a>
 
   <a href="https://visualstudio.microsoft.com/">
