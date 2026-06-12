@@ -76,7 +76,7 @@ if (featuredGrid) {
           <p>${d.description}</p>
         </div>
         <div class="dish-card-footer">
-          <span class="dish-price">${Number(d.price).toFixed(2)} лв</span>
+          <span class="dish-price">${Number(d.price).toFixed(2)} EUR</span>
           <a href="pages/menu.html" class="btn btn-sm btn-outline">See Menu</a>
         </div>
       </article>

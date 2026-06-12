@@ -1,11 +1,4 @@
-/**
- * data.js — La Bella Tavola
- * Seed data: menu dishes stored as JS objects/arrays.
- * Used across all pages; loaded before menu.js / script.js.
- */
-
 const SEED_DISHES = [
-  // ── Antipasti ──
   {
     id: 1,
     name: "Bruschetta al Pomodoro",
@@ -48,7 +41,6 @@ const SEED_DISHES = [
     favourite: false,
     available: true
   },
-  // ── Pasta ──
   {
     id: 4,
     name: "Tagliatelle al Tartufo Nero",
@@ -237,10 +229,6 @@ const SEED_DISHES = [
   }
 ];
 
-/**
- * loadDishes() — returns dishes from localStorage if present,
- * else seeds with SEED_DISHES.
- */
 function loadDishes() {
   const raw = localStorage.getItem('lbt_dishes');
   if (raw) {

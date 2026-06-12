@@ -98,7 +98,7 @@ function buildCard(d) {
         <p>${d.description}</p>
       </div>
       <div class="dish-card-footer">
-        <span class="dish-price">${Number(d.price).toFixed(2)} лв</span>
+        <span class="dish-price">${Number(d.price).toFixed(2)} EUR</span>
         <div class="dish-actions">
           <button data-action="toggle" data-id="${d.id}" title="${d.available ? 'Mark unavailable' : 'Mark available'}">
             <i class="fa-solid fa-${d.available ? 'eye' : 'eye-slash'}"></i>
@@ -136,7 +136,7 @@ function updateStats() {
 
   dishCountEl.textContent = `${shown.length} dish${shown.length !== 1 ? 'es' : ''}`;
   favCountEl.innerHTML = `<i class="fa-solid fa-heart" style="color:var(--clr-accent)"></i> ${favs} favourite${favs !== 1 ? 's' : ''}`;
-  avgPriceEl.textContent = `Avg: ${avg.toFixed(2)} лв`;
+  avgPriceEl.textContent = `Avg: ${avg.toFixed(2)} EUR`;
 }
 
 searchInput.addEventListener('input', () => {
@@ -279,7 +279,7 @@ function validateForm() {
     dishPrice.classList.add('error');
     valid = false;
   } else if (price > 500) {
-    priceError.textContent = 'Price seems too high (max 500 лв).';
+    priceError.textContent = 'Price seems too high (max 500 EUR).';
     dishPrice.classList.add('error');
     valid = false;
   }
